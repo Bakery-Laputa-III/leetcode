@@ -1,0 +1,31 @@
+---
+BasedOnStyle: LLVM
+# 最通用的大括号风格：Attach (K&R/Java风格)
+BreakBeforeBraces: Attach
+
+# 缩进设置
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never # 使用空格，这是现代C++的通用做法
+
+# 合理的列宽限制
+ColumnLimit: 100 # 比80更宽松，适应现代宽屏显示器
+
+# 允许简单的控制语句放在一行（提高可读性）
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: InlineOnly # 只允许内联函数和空函数在一行
+
+# 指针和引用对齐
+PointerAlignment: Left # 最通用的方式：Type* ptr;
+
+# 包含文件排序
+SortIncludes: true
+
+# 空格控制
+SpaceBeforeParens: ControlStatements # 只在控制语句后加空格：if () vs func()
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+
+# 换行时保持可读性
+BreakBeforeBinaryOperators: NonAssignment # 在非赋值运算符前换行更清晰
