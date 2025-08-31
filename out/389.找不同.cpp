@@ -54,7 +54,7 @@ using namespace std;
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        unordered_map<char, int> map;
+        unordered_map<char, short> map;
         for (auto c : s) { map[c]++; }
         for (auto c : t) { if (--map[c] == -1) return c; }
         return 0;   // 不可能被执行
