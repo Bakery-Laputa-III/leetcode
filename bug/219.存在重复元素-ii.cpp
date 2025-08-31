@@ -49,23 +49,26 @@
  *
  *
  */
-#include <cstdlib>
-#include <unordered_map>
 #define RUN 1
-#include <iostream>
+#include <unordered_set>
 #include <vector>
+#include <iostream>
 using namespace std;
 // @lc code=start
 class Solution {
-  public:
+public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        unordered_map<int, int> v2i;
+        unordered_set<int> set;
+        int len = k + 1; // 滑动窗口长度
         for (int i = 0; i < nums.size(); i++) {
-            if (v2i.find(nums[i]) == v2i.end()) {
-                v2i[nums[i]] = i;
-            } else {
-                if (i - v2i[nums[i]] <= k) return true;
-                v2i[nums[i]] = i;
+            if (set.size() == len) {
+                set.erase(set.begin());
+            }
+            if (set.find(nums[i]) == set.end()) {
+                set.insert(nums[i]);
+            }
+            else {
+                return true;
             }
         }
         return false;
@@ -75,7 +78,7 @@ class Solution {
 #if RUN
 int main() {
     Solution sole;
-    vector<int> nums = {1, 2, 3, 1, 2, 3};
+    vector<int> nums = { 1, 2, 3, 1, 2, 3 };
     int k = 2;
     cout << "Test!" << endl;
     cout << sole.containsNearbyDuplicate(nums, k);
