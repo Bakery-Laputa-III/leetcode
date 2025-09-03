@@ -18,7 +18,7 @@ class Solution {
         unordered_map<string, vector<string>> map;
         for (const auto& str : strs) {
             string tmp = str;             // 空间O(n*k)
-            sort(tmp.begin(), tmp.end()); //时间O(n*klogk)
+            sort(tmp.begin(), tmp.end()); // 时间O(n*klogk)
             map[tmp].push_back(str);      // 时间O(n*1)
         }
 
