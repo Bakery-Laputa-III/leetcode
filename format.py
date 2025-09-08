@@ -8,7 +8,7 @@ def main():
     # 配置文件和目录（使用相对路径）
     script_dir = os.path.dirname(os.path.abspath(__file__))
     clang_format_file = os.path.join(script_dir, ".clang-format")
-    source_dir = os.path.join(script_dir, "100hot")
+    source_dir = os.path.join(script_dir, "code")
     record_file = os.path.join(script_dir, "format_record.json")
     
     # 检查.clang-format文件是否存在
