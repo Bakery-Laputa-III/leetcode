@@ -59,22 +59,27 @@
 using namespace std;
 // @lc code=start
 class Solution {
-public:
+  public:
     bool canThreePartsEqualSum(vector<int>& arr) {
         long long total = accumulate(arr.begin(), arr.end(), 0LL);
         if (total % 3 != 0) return false;
         long long target = total / 3;
         int i = 0, j = arr.size() - 1;
         int l = 0, r = 0;
-        do { l += arr[i++]; } while (i < arr.size() && l != target);
-        do { r += arr[j--]; } while (j >= 0 && r != target);
-        return i < j + 1;   // i ,j会多走一步, 由此正确的位置应该为[0...i-1],[j+1...len-1], 所以i-1与j+1的距离大于1也就是i-1+1 < j+1
+        do {
+            l += arr[i++];
+        } while (i < arr.size() && l != target);
+        do {
+            r += arr[j--];
+        } while (j >= 0 && r != target);
+        return i < j + 1; // i ,j会多走一步, 由此正确的位置应该为[0...i-1],[j+1...len-1],
+                          // 所以i-1与j+1的距离大于1也就是i-1+1 < j+1
     }
 };
 // @lc code=end
 int main() {
     Solution sole;
-    vector<int> vct = { 1, -1, 1, -1 };
+    vector<int> vct = {1, -1, 1, -1};
     sole.canThreePartsEqualSum(vct);
     return 0;
 }
