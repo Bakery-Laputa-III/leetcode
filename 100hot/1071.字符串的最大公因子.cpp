@@ -51,12 +51,19 @@
  * 
  * 
  */
-
+#include <numeric>
+#include <string>
+using namespace std;
 // @lc code=start
 class Solution {
 public:
     string gcdOfStrings(string str1, string str2) {
-        
+        string express = str1.substr(0, gcd(str1.length(), str2.length()));
+        string tmp1 = "";
+        string tmp2 = "";
+        for (int i = 0; i < str1.length() / express.length(); i++) tmp1 += express;
+        for (int i = 0; i < str2.length() / express.length(); i++) tmp2 += express;
+        return str1 == tmp1 && str2 == tmp2 ? express : "";
     }
 };
 // @lc code=end
